@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-文章列表</title>
+</head>
+<body>
+
+<h2>文章列表</h2>
+<ul>
+    <li th:each="article,indexStat:${articles}">
+        <a th:href="'/detail?id=' + ${article.id}"
+           th:text="${article.title}"></a>
+        <span th:text="${article.postDate}"></span>
+        <a th:href="'/admin/article/doDelete?id=' + ${article.id}">删除</a>
+    </li>
+</ul>
+
+</body>
+</html>

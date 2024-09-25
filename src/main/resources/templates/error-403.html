@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>403</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>无权限访问当前页面！</h1>
+<p>详细信息：</p>
+<p th:text="${errorMessage}"></p>
+<a href="/" th:href="@{/}">返回首页</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-更新文章</title>
+</head>
+<body>
+
+<h2>更新文章</h2>
+<form th:action="@{/blogger/article/doUpdate}" method="post">
+    <input type="hidden" name="id" th:value="${article.id}">
+    <p>标题：</p>
+    <p><input type="text" name="title" style="width:400px;" th:value="${article.title}"></p>
+    <p>内容：</p>
+    <p><textarea name="content" rows="30" cols="80" th:text="${article.content}"></textarea></p>
+    <p>
+        <input type="submit" value="更新">
+    </p>
+</form>
+
+</body>
+</html>

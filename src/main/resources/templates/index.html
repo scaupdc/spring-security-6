@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-首页</title>
+</head>
+<body>
+
+<div th:switch="${#authorization.expression('isAuthenticated()')}">
+    <div th:case="${true}">
+        <h1 th:text="'欢迎您！' + ${#authentication.name} + ${#authentication.principal.authorities}"></h1>
+
+        <!--博主-->
+        <div th:if="${#authorization.expression('hasRole(''ROLE_BLOGGER'')')}">
+            <a th:href="@{/blogger/article/post}">发表文章</a>
+            <a th:href="@{/blogger/article/list}">管理文章</a>
+        </div>
+
+        <!--管理员-->
+        <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+            <a th:href="@{/admin/blogger/create}">创建博主</a>
+            <a th:href="@{/admin/blogger/list}">管理博主</a>
+            <a th:href="@{/admin/article/list}">管理文章</a>
+        </div>
+
+        <div><a th:href="@{/doLogout}">登出</a></div>
+    </div>
+
+    <div th:case="*">
+        <h1>欢迎您！游客</h1>
+        <div><a th:href="@{/login}">登录</a></div>
+    </div>
+</div>
+
+<hr>
+
+<h2>文章列表</h2>
+<ul>
+    <li th:each="article,indexStat:${articles}">
+        <a th:href="'/detail?id=' + ${article.id}"
+           th:text="${article.title}"></a>
+        <span th:text="${article.postDate}"></span>
+    </li>
+</ul>
+
+<img th:src="@{/image/spring.jpeg}" alt="" srcset="">
+
+</body>
+</html>

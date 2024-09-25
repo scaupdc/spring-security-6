@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-创建博主</title>
+</head>
+<body>
+
+<h2>创建博主</h2>
+<form th:action="@{/admin/blogger/doCreate}" method="post">
+    <p>用户名：</p>
+    <p><input type="text" name="username" style="width:400px;"></p>
+    <p>密码：</p>
+    <p><input type="password" name="password" style="width:400px;"></p>
+    <p>
+        <input type="submit" value="创建">
+    </p>
+</form>
+
+</body>
+</html>

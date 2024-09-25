@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo-发表文章</title>
+</head>
+<body>
+
+<h2>发表文章</h2>
+<form th:action="@{/blogger/article/doPost}" method="post">
+    <p>标题：</p>
+    <p><input type="text" name="title" style="width:400px;"></p>
+    <p>内容：</p>
+    <p><textarea name="content" rows="30" cols="80"></textarea></p>
+    <p>
+        <input type="submit" value="发表">
+    </p>
+</form>
+
+</body>
+</html>
